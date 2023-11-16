@@ -59,3 +59,14 @@ func (set *Set) SREM(value string) (error, string) {
 
 	return errors.New("Error: element not found."), ""
 }
+
+func (set *Set) SISMEMBER(value string) (bool, error) {
+    current := set.Head
+    for current != nil {
+        if current.Data == value {
+            return true, nil
+        }
+        current = current.Next
+    }
+    return false, nil
+}

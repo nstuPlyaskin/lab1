@@ -32,6 +32,13 @@ func main() {
 	err, val = set.SREM("body")
 	fmt.Println(err, val)
 
+	// SET - SISMEMBER
+	found, err := set.SISMEMBER("1")
+	if err != nil {
+		fmt.Println("Error:", err)
+	} else {
+		fmt.Println("Found:", found)
+	}
 
 	// OUTPUT INFO
 	stackOutput := stack.Head

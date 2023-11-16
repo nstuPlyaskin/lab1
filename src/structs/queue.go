@@ -7,7 +7,7 @@ type Queue struct {
 	Tail *Node
 }
 
-func (queue *Queue) Qpush(value string) error {
+func (queue *Queue) QPUSH(value string) error {
 	if value == "" {
 		return errors.New("Error: Queue is empty.")
 	}
@@ -23,7 +23,7 @@ func (queue *Queue) Qpush(value string) error {
 	return nil
 }
 
-func (queue *Queue) Qpop() (error, string) {
+func (queue *Queue) QPOP() (error, string) {
 	if queue.Head == nil {
 		return errors.New("Error: can't find head."), ""
 	} else {

@@ -2,48 +2,53 @@ package main
 
 import (
 	"fmt"
-
 	"lab1/src/structs"
 )
 
 func main() {
+	// STACK - PUSH
 	stack := &structs.Stack{}
-	stack.Spush("1asd")
-	stack.Spush("2asd")
-	stack.Spush("3asd")
+	stack.SPUSH("1asd")
 
+	// STACK - POP
+	err, val := stack.SPOP()
+	fmt.Println(err, val)
+
+	// QUEUE - PUSH
 	queue := &structs.Queue{}
-	queue.Qpush("1aabo")
-	queue.Qpush("2aabo")
-	queue.Qpush("3aabo")
+	queue.QPUSH("1aabo")
 
-	err, val := stack.Spop()
-	fmt.Println(err, val)
-	err, val = stack.Spop()
-	fmt.Println(err, val)
-	err, val = stack.Spop()
-	fmt.Println(err, val)
-	err, val = stack.Spop()
-	fmt.Println(err, val)
-	err, val = stack.Spop()
-	fmt.Println(err, val)
-	err, val = stack.Spop()
-	fmt.Println(err, val)
-	err, val = stack.Spop()
+	// QUEUE - POP
+	err, val = queue.QPOP()
 	fmt.Println(err, val)
 
-	err, val = queue.Qpop()
+	// SET - ADD
+	set := &structs.Set{}
+	set.SADD("1")
+	set.SADD("3")
+	set.SADD("2")
+	
+	// SET - SREM
+	err, val = set.SREM("body")
 	fmt.Println(err, val)
 
-	curentNode := stack.Head
-	for curentNode != nil {
-		fmt.Println(curentNode.Data)
-		curentNode = curentNode.Next
+
+	// OUTPUT INFO
+	stackOutput := stack.Head
+	for stackOutput != nil {
+		fmt.Println(stackOutput.Data)
+		stackOutput = stackOutput.Next
 	}
 
-	curentNode1 := queue.Head
-	for curentNode1 != nil {
-		fmt.Println(curentNode1.Data)
-		curentNode1 = curentNode1.Next
+	queueOutput := queue.Head
+	for queueOutput != nil {
+		fmt.Println(queueOutput.Data)
+		queueOutput = queueOutput.Next
+	}
+
+	setOutput := set.Head
+	for setOutput != nil {
+		fmt.Println(setOutput.Data)
+		setOutput = setOutput.Next
 	}
 }

@@ -11,7 +11,7 @@ type Node struct {
 	Next *Node
 }
 
-func (stack *Stack) Spush(value string) error {
+func (stack *Stack) SPUSH(value string) error {
 	if value == "" {
 		return errors.New("Error: Stack is empty!")
 	}
@@ -25,7 +25,7 @@ func (stack *Stack) Spush(value string) error {
 	return nil
 }
 
-func (stack *Stack) Spop() (error, string) {
+func (stack *Stack) SPOP() (error, string) {
 	if stack.Head == nil {
 		return errors.New("Error: can't find head."), ""
 	}
